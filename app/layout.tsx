@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const timmana = Timmana({ 
+const timmana = Timmana({
   weight: "400",
   variable: "--font-timmana",
   subsets: ["latin"],
