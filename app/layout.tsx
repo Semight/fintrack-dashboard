@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Timmana } from "next/font/google";
 import "./globals.css";
+import MantineClientProvider from "@/components/MantineClientProvider";
+
+import "@mantine/core/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +12,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const timmana = Timmana({ 
+  weight: "400",
+  variable: "--font-timmana",
   subsets: ["latin"],
 });
 
@@ -25,9 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${timmana.variable} antialiased`}
       >
-        {children}
+        <MantineClientProvider>{children}</MantineClientProvider>
       </body>
     </html>
   );
