@@ -29,7 +29,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <TopNav isOpen={isOpen} onToggle={toggleSidebar} />
         </div>
 
-        <main className={cn("flex-1 sm:pl-0 pl-4 overflow-y-auto pt-[var(--topnav-height,72px)]", isOpen ? 'pr-12' : 'pr-4')}>
+        <main className={cn("flex-1 sm:pl-0 pl-4 overflow-x-auto overflow-y-auto pt-[var(--topnav-height,72px)]", isOpen ? 'pr-12' : 'pr-4')}>
           {children}
         </main>
       </div>

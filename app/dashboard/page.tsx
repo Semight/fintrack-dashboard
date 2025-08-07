@@ -43,45 +43,63 @@ export default function DashboardPage() {
         <Avatar />
       </div>
 
-      <Tabs
-        value={activeTab}
-        onChange={setActiveTab}
-        color="teal-blue-40"
-        styles={{
-          tab: () => ({
-            "&[data-active]": {
-              color: "#4B8B9F",
-              borderBottom: "2px solid #4B8B9F",
-            },
-            color: "#64748b",
-          }),
-        }}
-      >
-        <Tabs.List>
-          <Tabs.Tab
-            value="first"
-            className="w-[121px] h-[44px] text-[25px] font-medium font-sans leading-5"
-          >
-            Overview
-          </Tabs.Tab>
-          <Tabs.Tab
-            value="second"
-            className="w-[121px] h-[44px] text-[15px] font-medium font-sans leading-5"
-          >
-            Transactions
-          </Tabs.Tab>
-        </Tabs.List>
+      <div className="w-full">
+        <Tabs
+          value={activeTab}
+          onChange={setActiveTab}
+          color="teal-blue-40"
+          styles={{
+            tab: () => ({
+              "&[data-active]": {
+                color: "#437D8E",
+                borderBottom: "2px solid #4B8B9F",
+              },
+              color: "#64748b",
+            }),
+          }}
+        >
+          <Tabs.List>
+            <Tabs.Tab
+              value="first"
+              style={{
+                width: "121px",
+                height: "44px",
+                fontSize: "15px",
+                color: activeTab === "first" ? "#437D8E" : "#6d797c",
+                fontFamily: "sans-serif",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            >
+              Overview
+            </Tabs.Tab>
+            <Tabs.Tab
+              value="second"
+              style={{
+                width: "121px",
+                height: "44px",
+                fontSize: "15px",
+                color: activeTab === "second" ? "#437D8E" : "#6d797c",
+                fontFamily: "sans-serif",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            >
+              Transactions
+            </Tabs.Tab>
+          </Tabs.List>
 
-        <Tabs.Panel value="first">
-          <Summary />
-          <div className="mt-7">
-            <TransactionsTable />
-          </div>
-        </Tabs.Panel>
-        <Tabs.Panel value="second">
-          <h1 className="text-primary mt-5 font-bold">No Payment Yet</h1>
-        </Tabs.Panel>
-      </Tabs>
+          <Tabs.Panel value="first">
+            <Summary />
+            <div className="mt-7">
+              <TransactionsTable />
+            </div>
+          </Tabs.Panel>
+          <Tabs.Panel value="second">
+            <h1 className="text-primary mt-5 font-bold">No Payment Yet</h1>
+          </Tabs.Panel>
+        </Tabs>
+      </div>
     </DashboardLayout>
   );
 }

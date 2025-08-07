@@ -16,7 +16,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
     <aside
       className={cn(
         "md:sticky fixed top-0 h-screen flex flex-col bg-background transition-all duration-300 overflow-hidden z-[60]",
-        isOpen ? "w-[320px]" : "w-[0px]"
+        isOpen ? "w-[320px]" : "w-0 md:w-[60px]"
       )}
     >
       {isOpen && (
