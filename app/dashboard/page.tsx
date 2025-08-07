@@ -6,6 +6,8 @@ import TransactionsTable from "@/components/dashboard/TransactionsTable";
 import { Button } from "@/components/ui/button";
 import { DropdownIcon, StatusIcon, UnionIcon } from "@/icons";
 import { Tabs } from "@mantine/core";
+import Image from "next/image";
+import CardIcon from "@/assets/credit-card-icon.jpg"
 import { useState } from "react";
 
 export default function DashboardPage() {
@@ -14,9 +16,9 @@ export default function DashboardPage() {
   return (
     <DashboardLayout>
       <div className="flex flex-col sm:flex-row gap-4 justify-between">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-1">
-            <h1 className="font-sans font-bold text-[34px] leading-10 tracking-[-2%] text-primary">
+            <h1 className="font-sans font-bold text-[24px] md:text-[34px] leading-10 tracking-[-2%] text-primary">
               Wallet Ledger
             </h1>
             <DropdownIcon />
@@ -96,7 +98,23 @@ export default function DashboardPage() {
             </div>
           </Tabs.Panel>
           <Tabs.Panel value="second">
-            <h1 className="text-primary mt-5 font-bold">No Payment Yet</h1>
+            <div className="flex flex-col items-center justify-center my-10 text-center px-4">
+              <Image
+                className="w-32 h-32 object-contain mb-4" src={CardIcon} alt={""}              />
+
+              <h2 className="text-[20px] md:text-[24px] font-semibold text-primary mb-2">
+                No Payments Yet
+              </h2>
+
+              <p className="text-sm md:text-base text-muted-foreground mb-4 max-w-md">
+                You haven’t made any payments yet. Once you make a payment, your
+                history will show up here.
+              </p>
+
+              <button className="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-5 rounded-md text-sm transition-all">
+                Make a Payment
+              </button>
+            </div>
           </Tabs.Panel>
         </Tabs>
       </div>

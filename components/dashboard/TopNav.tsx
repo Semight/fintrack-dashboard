@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Profile from "@/assets/profile.png"
 import { cn } from "@/lib/utils";
+import { RiCloseLargeLine } from "react-icons/ri";
 
 type TopNavProps = {
   isOpen: boolean;
@@ -11,11 +12,11 @@ type TopNavProps = {
 
 export default function TopNav({ isOpen, onToggle }: TopNavProps) {
   return (
-    <header className="flex gap-4 justify-between items-center pr-4 md:pr-12 z-[1000]">
+    <header className="flex gap-4 h-[60px] justify-between items-center px-4 md:px-12 z-[1000]">
       <div
         className={cn(
-          "flex items-center gap-7 py-4 transition-all duration-300",
-          isOpen ? "px-12" : "px-4"
+          "flex items-center gap-7 transition-all duration-300",
+          isOpen ? "px-0" : "px-0"
         )}
       >
         <button
@@ -23,7 +24,7 @@ export default function TopNav({ isOpen, onToggle }: TopNavProps) {
           aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
           className="focus:outline-none"
         >
-          {isOpen ? <HamburgerIcon /> : <HamburgerIcon />}
+          {isOpen ? <RiCloseLargeLine /> : <HamburgerIcon />}
         </button>
 
         {isOpen && (
@@ -40,7 +41,7 @@ export default function TopNav({ isOpen, onToggle }: TopNavProps) {
         <SearchIcon />
         <MenuIcon />
         <div>
-          <Image src={Profile} alt="profile" className="w-10 h-10" />
+          <Image src={Profile} alt="profile" className="object-contain w-10 h-10" />
         </div>
       </div>
     </header>
